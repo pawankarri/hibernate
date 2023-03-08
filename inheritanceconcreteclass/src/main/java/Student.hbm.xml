@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping>
+    <class name="com.hibernate.inheritanceconcreteclass.Student" table="student">
+    <id name="rollno">
+    <generator class="increment"></generator>
+    </id>
+    <property name="name"></property>
+    <union-subclass name="com.hibernate.inheritanceconcreteclass.RegularStudent" table="rstudent">
+    <property name="fee"></property>
+    <property name="marks"></property>
+    </union-subclass>
+    <union-subclass name="com.hibernate.inheritanceconcreteclass.PrivateStudent" table="pstudent">
+    <property name="pfee"></property>
+    <property name="psubject"></property>
+    </union-subclass>
+    </class>
+    </hibernate-mapping>
