@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping>
+    <class name="com.hibernate.manytomany" table="manyemp">
+    <id name="id" type="int">
+    <column name="qid"></column>
+    <generator class="increment"></generator>
+    </id>
+    <property name="qname"></property>
+    <list name="ans" table="manyans" fetch="select" cascade="all">
+    <key column="qid"></key>
+    <index column="type"></index>
+    <many-to-many class="com.hibernate.manytomany.Employee" column="ansid"/>
+    </list>
+    </class>
+    </hibernate-mapping>
